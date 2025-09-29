@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Travel Review Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #0077cc;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button {
+            background: #0077cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005fa3;
+        }
+        .output {
+            margin-top: 20px;
+        }
+        h2 {
+            color: #0077cc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AI Travel Review Summarizer</h1>
+</header>
+
+<div class="container">
+    <h2>Enter Location</h2>
+    <input type="text" id="location" placeholder="Enter city or place">
+    <button onclick="getSummary()">Get Recommendations</button>
+
+    <div class="output">
+        <h2>Summary</h2>
+        <p id="summary"></p>
+
+        <h2>Food Recommendations</h2>
+        <ul id="food"></ul>
+
+        <h2>Hostel Recommendations</h2>
+        <ul id="hostels"></ul>
+    </div>
+</div>
+
+<script>
+function getSummary() {
+    let location = document.getElementById("location").value.trim();
+    if (!location) {
+        alert("Please enter a location.");
+        return;
+    }
+
+    document.getElementById("summary").innerText = `Summary of travel reviews for ${location}: A beautiful destination with delicious food and comfortable hostels.`;
+
+    document.getElementById("food").innerHTML = `
+        <li>Sushi Dai - Tsukiji Market, ${location}</li>
+        <li>Ichiran Ramen - Shibuya, ${location}</li>
+        <li>Harajuku Crepes - Harajuku, ${location}</li>
+    `;
+
+    document.getElementById("hostels").innerHTML = `
+        <li>Khaosan Tokyo Hostel - Asakusa, ${location}</li>
+        <li>Sakura Hostel Asakusa - Asakusa, ${location}</li>
+        <li>Oak Hostel Zen - Shinjuku, ${location}</li>
+    `;
+}
+</script>
+
+</body>
+</html>
